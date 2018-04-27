@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 
+import Auth0Cordova from '@auth0/cordova';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -38,6 +40,10 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.title = this.pages[0].title;
+
+      (window as any).handleOpenURL = (url: string) => {
+        Auth0Cordova.onRedirectUri(url);
+      }
     });
   }
 
