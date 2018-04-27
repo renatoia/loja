@@ -13,7 +13,7 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   title: string;
 
@@ -26,7 +26,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      { title: 'Entrar ou inscrever-se', component: LoginPage }
+      { title: 'Entre ou autentique-se', component: LoginPage }
     ];
 
   }
