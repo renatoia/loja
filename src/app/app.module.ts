@@ -16,6 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HttpClientModule } from '@angular/common/http'
 import { ProdutoService } from './../services/produto';
+import { ContactFormService } from '../services/contact-form-services';
 
 //const cloudSettings: CloudSettings = {
 //  'core': {
@@ -35,7 +36,8 @@ import { ProdutoService } from './../services/produto';
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    DetalhePageModule
+    DetalhePageModule,
+    ContactFormService
   ],
   bootstrap: [IonicApp],
   entryComponents: [
