@@ -31,7 +31,7 @@ export class HomePage implements OnInit {
     
   }
 
-  AbrirDetalhe(codigo){
+  detalharProduto(codigo){
     console.log(codigo);
     this.navCtrl.push(DetalhePage, {codigo});
   }

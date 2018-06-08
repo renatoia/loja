@@ -1,18 +1,72 @@
-<!--
-  Generated template for the ContactPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>contact</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+    <ion-navbar color="primary">
+       <ion-title>
+          Formulário de Contato
+       </ion-title>
+    </ion-navbar>
+ </ion-header>
+ 
+ <ion-content>
+    <p class="center">
+       <ion-icon class="large-lighter" primary name="contact"></ion-icon>
+    </p>
+ 
+    <form #f="ngForm" novalidate (ngSubmit)="onSubmit(f)">
+       <ion-list>
+ 
+          <ion-item>
+             <ion-label floating>Nome</ion-label>
+             <ion-input type="text" name="name" id="name" required
+                [(ngModel)]="data.name"></ion-input>
+          </ion-item>
+ 
+          <div [hidden]="(f.controls.name && f.controls.name?.valid ||
+             (f.controls.name?.pristine && !isSubmitted))"
+             class="note-danger">
+             O nome é obrigatório
+          </div>
+ 
+          <ion-item>
+             <ion-label floating>Telefone</ion-label>
+             <ion-input type="tel" name="phone" id="phone" [(ngModel)]="data.phone">
+             </ion-input>
+          </ion-item>
+ 
+          <ion-item>
+             <ion-label floating>E-mail</ion-label>
+             <ion-input type="email" required name="email" id="email" [(ngModel)]="data.email"></ion-input>
+          </ion-item>
+ 
+          <div [hidden]="(f.controls.email && f.controls.email?.valid ||
+             (f.controls.email?.pristine && !isSubmitted))" class="note-danger">
+             O e-mail é obrigatório
+          </div>
+ 
+          <ion-item>
+             <ion-label floating>Comentário</ion-label>
+             <ion-input type="text" required minlength="4" id="comment" name="comment" [(ngModel)]="data.comment"></ion-input>
+          </ion-item>
+ 
+          <div *ngIf="(isSubmitted && f.controls.comment && f.controls.comment?.pristine || ((f.controls.comment) && (f.controls.comment?.dirty && f.controls.comment?.errors)))" class="note-danger">
+             Por favor, informe mais {{ 
+                4 - (f.controls.comment?.errors.minlength ? f.controls.comment?.errors.minlength.actualLength : 0)
+             }} caracteres
+          </div>
+ 
+          <ion-item class="terms-accepted">
+             <ion-toggle item-left [(ngModel)]="data.termsAccepted" name="termsAccepted" id="termsAccepted" type="button" (click)="noSubmit($event)"></ion-toggle>
+             <ion-label item-right>Concordo com os termos e condições</ion-label>
+          </ion-item>
+ 
+          <div [hidden]="(!isSubmitted) || (f.controls.termsAccepted && data.termsAccepted)" class="note-danger">
+             Você deve concordar com os termos e condições!
+          </div>
+ 
+       </ion-list>
+ 
+       <div class="center">
+          <button ion-button type="submit" round outline>Enviar</button>
+       </div>
+ 
+    </form>
+ </ion-content>

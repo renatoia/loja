@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
+import { ContactPage } from '../pages/contact/contact';
 
 import Auth0Cordova from '@auth0/cordova';
 
@@ -28,7 +29,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      { title: 'Entre ou autentique-se', component: LoginPage }
+      { title: 'Entre ou autentique-se', component: LoginPage },
+      { title: 'Contato', component: ContactPage}
     ];
 
   }

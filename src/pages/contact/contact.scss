@@ -1,3 +1,41 @@
 page-contact {
 
-}
+    .center {
+       text-align: center;
+    }
+ 
+    ion-icon .large-lighter {
+       font-size: 7em !important;
+       opacity: 0.5 !important;
+    }
+ 
+    ion-list > .item:first-child {
+       border-top: 0;
+    }
+ 
+    ion-list > .item:last-child, ion-list > .ion-item-sliding:last-child .item {
+       border-bottom: 0;
+    }
+ 
+    .terms-accepted {
+       padding-top: 10px;
+ 
+       ion-toggle {
+          padding-left: 0;
+       }
+ 
+       .item-inner {
+          border-bottom: 0;
+       }
+ 
+    }
+ 
+    .item ion-toggle {
+       padding-left: 0;
+    }
+ 
+    .note-danger {
+       padding-left: 16px;
+       color: #d14;
+    }
+ }

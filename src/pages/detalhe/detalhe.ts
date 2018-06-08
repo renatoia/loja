@@ -16,8 +16,8 @@ import { ProdutoService } from './../../services/produto';
   templateUrl: 'detalhe.html',
 })
 export class DetalhePage {
-  public prod;
-  public codigo;
+  public prod = '';
+  public codigo = '';
 
   constructor(
     public navCtrl: NavController, 
@@ -31,6 +31,10 @@ export class DetalhePage {
       this.ps.obterProduto(codigoProduto).subscribe(
       dados => this.produto = dados,
       erro => console.log(erro));
+  }
+
+  voltar(){
+    this.navCtrl.goToRoot({});
   }
 
   ionViewDidLoad() {

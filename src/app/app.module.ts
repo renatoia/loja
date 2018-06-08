@@ -16,7 +16,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HttpClientModule } from '@angular/common/http'
 import { ProdutoService } from './../services/produto';
-import { ContactFormService } from '../services/contact-form-services';
+import { ContactFormService } from '../services/contact-form.service';
+//import { ContactPageModule } from '../pages/contact/contact.module';
+import { ContactPage } from '../pages/contact/contact';
+import { ThankyouPage } from '../pages/thankyou/thankyou';
+import { DetalhePage } from '../pages/detalhe/detalhe';
 
 //const cloudSettings: CloudSettings = {
 //  'core': {
@@ -29,27 +33,32 @@ import { ContactFormService } from '../services/contact-form-services';
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    DetalhePage,
+    ContactPage,
+    ThankyouPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot(),
-    DetalhePageModule,
-    ContactFormService
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    DetalhePage,
+    LoginPage,
+    ContactPage,
+    ThankyouPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     ProdutoService,
+    ContactFormService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService
   ]
